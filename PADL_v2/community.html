@@ -1,0 +1,879 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PADL Community Landing Page</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00C2B2", // Premium Sporty Teal
+              "primary-dark": "#009E91",
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A",
+              "surface-light": "#FFFFFF",
+              "surface-dark": "#1E293B",
+              "text-main": "#1E293B",
+              "text-secondary": "#64748B",
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              "2xl": "2rem",
+              "3xl": "2.5rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              card: "0 2px 10px rgba(0, 0, 0, 0.03)",
+              "card-hover": "0 10px 30px rgba(0, 0, 0, 0.06)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased overflow-y-scroll"
+  >
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 h-20"
+    >
+      <div
+        class="flex items-center justify-between h-full w-full max-w-[1440px] mx-auto px-4 md:px-8"
+      >
+        <div class="flex items-center gap-12">
+          <div class="flex items-center gap-2 cursor-pointer group">
+            <div
+              class="size-9 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30 group-hover:scale-105 transition-transform"
+            >
+              <span class="material-symbols-outlined text-2xl"
+                >sports_tennis</span
+              >
+            </div>
+            <h2
+              class="text-2xl font-bold tracking-tight text-text-main dark:text-white"
+            >
+              PADL
+            </h2>
+          </div>
+          <nav class="hidden lg:flex items-center gap-8">
+            <a
+              class="text-text-secondary dark:text-gray-400 font-medium hover:text-primary transition-colors text-sm"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-text-secondary dark:text-gray-400 font-medium hover:text-primary transition-colors text-sm"
+              href="#"
+              >Play</a
+            >
+            <a class="text-primary font-bold text-sm relative" href="#">
+              Community
+              <span
+                class="absolute -bottom-7 left-0 right-0 h-1 bg-primary rounded-t-full"
+              ></span>
+            </a>
+            <a
+              class="text-text-secondary dark:text-gray-400 font-medium hover:text-primary transition-colors text-sm"
+              href="#"
+              >Shop</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="hidden md:block w-80">
+            <div class="relative group">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <span
+                  class="material-symbols-outlined text-gray-400 group-focus-within:text-primary transition-colors"
+                  >search</span
+                >
+              </div>
+              <input
+                class="block w-full pl-10 pr-3 py-2.5 border-none rounded-full bg-gray-100 dark:bg-gray-800 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-white dark:focus:bg-gray-800 transition-all placeholder:text-gray-400 text-text-main dark:text-white"
+                placeholder="Search players, clubs, tournaments..."
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              class="size-10 rounded-full bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 hover:border-primary/30 text-text-secondary hover:text-primary flex items-center justify-center transition-all relative"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >notifications</span
+              >
+              <span
+                class="absolute top-2.5 right-2.5 size-2 bg-red-500 rounded-full border border-white dark:border-surface-dark"
+              ></span>
+            </button>
+            <div class="h-8 w-px bg-gray-200 dark:bg-gray-700 mx-1"></div>
+            <button
+              class="flex items-center gap-2 pl-1 pr-2 py-1 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
+            >
+              <div
+                class="size-8 rounded-full bg-gray-200 border border-white shadow-sm bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDZPRXGfjw0dc5X4Ro4sprdM8SP3PsrmlF4awNFfTPZGZ-o7ghw6LkZJL54YDb8XYrT2LhDNT-ttOFWuKMH-nLbNuV2A44_dWwhzuJSfJmJsoE7AOjy6FSi2fcJ8pN7ieQl_oh9syotVZ-4RdXHWjNdybjCb75xU0LUdDTXq-lFelSbgNrc5MdT1pY2LVmQLrV4ngJ6xAsnAUWcY1vFYdxv3HZpDxh4r1f00VQPYCHPMr8vLZ2fIlXwUpxdeO7kTlpyoTi1-OmL6k2r&quot;);
+                "
+              ></div>
+              <span class="material-symbols-outlined text-gray-400"
+                >expand_more</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-full max-w-[1440px] mx-auto pt-28 pb-12 px-4 md:px-8">
+      <section
+        class="relative w-full h-[500px] md:h-[550px] rounded-3xl overflow-hidden mb-12 group shadow-2xl"
+      >
+        <div
+          class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDzbrMCgnTCwcHv8_nSAwem2xmiNPYHvR-vhLxfkOzOZPQhu980ngX2ZcLUxo3OI3INnqoF1zrYLU0w1cwlckEJqMDSJivopjOKCdwqKb6nch_if6FmZrh9OVgIh90gnfswAoHkjmJZcqx2X-EHyyTeK5j5neSfiXyDpmQWMFd20dVOITCg8ynOaENf-t7AXUqromF5pb85tcwKqoXsaApgDwzpu2c13-GaWMx1ohEjl0O9sXggw8fd6LE4b3gdqyZ-Y5g-_YSq2WEY&quot;);
+          "
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-surface-dark/95 via-surface-dark/70 to-transparent"
+        ></div>
+        <div
+          class="relative z-10 h-full flex flex-col justify-center px-8 md:px-16 max-w-3xl animate-fade-in-up"
+        >
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/20 backdrop-blur-md w-fit mb-6"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+              ></span>
+            </span>
+            <span
+              class="text-primary text-xs font-bold uppercase tracking-wider"
+              >The Padel Community</span
+            >
+          </div>
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
+          >
+            Unite. Play. <br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-200"
+              >Share the Passion.</span
+            >
+          </h1>
+          <p
+            class="text-lg text-gray-300 mb-10 max-w-lg leading-relaxed font-light"
+          >
+            Join the world's fastest growing sports community. Find players near
+            you, join local clubs, and share your best moments on court.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button
+              class="px-8 py-4 bg-primary hover:bg-primary-dark text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 flex items-center justify-center gap-2 group/btn"
+            >
+              <span
+                class="material-symbols-outlined group-hover/btn:-translate-y-0.5 transition-transform"
+                >groups</span
+              >
+              Join a Group
+            </button>
+            <button
+              class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/10 text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2"
+            >
+              Explore Events
+            </button>
+          </div>
+          <div class="mt-12 flex items-center gap-4">
+            <div class="flex -space-x-4">
+              <div
+                class="size-10 rounded-full border-2 border-surface-dark bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCi9wcjdwCi6J4QNtTVP4M7tbXrNRFW89H6mWRKxOFH37Be_28t0XYzW_8wnorqMaTCieM5hb6jzVWp0q5mn4ihjYWtUe_3l6TMnqZWkMSM2TCJlrQImh4bld-PqOa6cHkVU3NYjEHsNRjJ3HGqGUQ5OaVeCLTiYrYMAMk-v-IDbFWr5P6VhphlWUh9snSSeke_fscTXvJX-Fjy7cQcuj4r8DSa7-swM7mZPQRWjacl_N0bylYugozlTXgIDSwIJ5-PG2RvJR3QEwHj&quot;);
+                "
+              ></div>
+              <div
+                class="size-10 rounded-full border-2 border-surface-dark bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCxZtesqOMY9moLka5ROX3y2CfbYAu39_4-J1hwOGMPQVJ3j0z7yXIKJefggmWjxpw_pOrWhYAHJbM1CN6P-qqRNho5vz600jWJ8mh8J0-GGjGxj-v0gYjh1DiAxVkBetJ4inO4jmjGt54pB1K28SXKhRN56yiD1KUeR8EIKiFj7Opj5_dBBGzchT1cFF96K-sZ69s3UxNitsclsAA1OYcBCLgggLSY8EZQSwqxyN-O9CqJMVo84R8nklYiIQQaKAg7mivyDv_FDEXL&quot;);
+                "
+              ></div>
+              <div
+                class="size-10 rounded-full border-2 border-surface-dark bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB4zF__KBYusu_CYrr4wf31CGKEBtf21tfsfXstQ2PwY9knwURsNsFB5K2X3KMbL8InrggYeEt0z3nfdC7NfYBg9gF5qV3OVPXIu9rdfGRAJeBmzil3KcLmeegznIB8WkgDCSgfJS14wW8YaeGkMLKYg0Dt6og1mBpf_P13raGNolnq5nmmAOfmt_cUKNJOme8E-VCrM7AurXzd6GrzZ0IXnPCJSTO2WfvbWOOgfEtB7tZ7bVRp2vrDaAgL8XEpPmPM9yb7hsCH7x4G&quot;);
+                "
+              ></div>
+              <div
+                class="size-10 rounded-full border-2 border-surface-dark bg-surface-light flex items-center justify-center text-xs font-bold text-text-main shadow-lg"
+              >
+                +2k
+              </div>
+            </div>
+            <p class="text-sm text-gray-400 font-medium">
+              Active players online now
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <aside
+          class="hidden lg:flex flex-col gap-6 lg:col-span-3 sticky top-28"
+        >
+          <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-card hover:shadow-card-hover transition-shadow"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="size-14 rounded-full bg-gray-200 bg-cover bg-center border-2 border-primary p-0.5"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCi9wcjdwCi6J4QNtTVP4M7tbXrNRFW89H6mWRKxOFH37Be_28t0XYzW_8wnorqMaTCieM5hb6jzVWp0q5mn4ihjYWtUe_3l6TMnqZWkMSM2TCJlrQImh4bld-PqOa6cHkVU3NYjEHsNRjJ3HGqGUQ5OaVeCLTiYrYMAMk-v-IDbFWr5P6VhphlWUh9snSSeke_fscTXvJX-Fjy7cQcuj4r8DSa7-swM7mZPQRWjacl_N0bylYugozlTXgIDSwIJ5-PG2RvJR3QEwHj&quot;);
+                "
+              ></div>
+              <div>
+                <h3 class="font-bold text-text-main dark:text-white">
+                  Alex Johnson
+                </h3>
+                <p class="text-xs text-text-secondary">
+                  Level 4.5 • Power Player
+                </p>
+              </div>
+            </div>
+            <div
+              class="grid grid-cols-3 gap-2 py-3 border-t border-gray-100 dark:border-gray-800"
+            >
+              <div class="text-center">
+                <div class="text-lg font-bold text-text-main dark:text-white">
+                  124
+                </div>
+                <div
+                  class="text-[10px] uppercase text-text-secondary font-bold tracking-wide"
+                >
+                  Matches
+                </div>
+              </div>
+              <div
+                class="text-center border-l border-gray-100 dark:border-gray-800"
+              >
+                <div class="text-lg font-bold text-text-main dark:text-white">
+                  82%
+                </div>
+                <div
+                  class="text-[10px] uppercase text-text-secondary font-bold tracking-wide"
+                >
+                  Win Rate
+                </div>
+              </div>
+              <div
+                class="text-center border-l border-gray-100 dark:border-gray-800"
+              >
+                <div class="text-lg font-bold text-text-main dark:text-white">
+                  28
+                </div>
+                <div
+                  class="text-[10px] uppercase text-text-secondary font-bold tracking-wide"
+                >
+                  Awards
+                </div>
+              </div>
+            </div>
+            <a
+              class="mt-2 block w-full py-2 text-center text-xs font-bold text-text-secondary hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              href="#"
+              >View Full Profile</a
+            >
+          </div>
+          <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl p-2 border border-gray-100 dark:border-gray-800 shadow-card"
+          >
+            <nav class="flex flex-col gap-1">
+              <a
+                class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-bold transition-colors"
+                href="#"
+              >
+                <span class="material-symbols-outlined">feed</span>
+                Activity Feed
+              </a>
+              <a
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main transition-colors font-medium group"
+                href="#"
+              >
+                <span
+                  class="material-symbols-outlined group-hover:text-primary transition-colors"
+                  >groups</span
+                >
+                My Groups
+              </a>
+              <a
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main transition-colors font-medium group"
+                href="#"
+              >
+                <span
+                  class="material-symbols-outlined group-hover:text-primary transition-colors"
+                  >apartment</span
+                >
+                My Clubs
+              </a>
+              <a
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-text-secondary hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-text-main transition-colors font-medium group"
+                href="#"
+              >
+                <span
+                  class="material-symbols-outlined group-hover:text-primary transition-colors"
+                  >emoji_events</span
+                >
+                Tournaments
+              </a>
+            </nav>
+          </div>
+          <div
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl p-5 border border-gray-100 dark:border-gray-800 shadow-card"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <h4
+                class="text-xs font-bold text-text-secondary uppercase tracking-wider"
+              >
+                Your Clubs
+              </h4>
+              <button
+                class="size-6 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-text-secondary transition-colors"
+              >
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+            <div class="flex flex-col gap-4">
+              <a class="flex items-center gap-3 group" href="#">
+                <div
+                  class="size-10 rounded-xl bg-gray-100 bg-cover bg-center border border-gray-200"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCLcIIO-ScQqpMdS4Edcr_Sslbt_8MISlB5JOSKLy-6JAWXhfgj7Cnti0hDQ7D0DVF4Ue9yP2AuZ6Xnk5hHkl4fxdmP7Ntol0Mf6Z1j63seTIgSQ2xjQG5NgnaXBTKDYmTHPrzJy8MjJ8PJHpx5xLX6EyqLW2Lbpyjc1FdeHKmjtaKwRIj1oIR-bd1Ku_b_IT2_1gmUad120hpZ49NBqtp9lnJY4_f-UKONRfAfR7ftW34d37RJeAAamrPpIgXATYMQlh8FWKFOmlBu&quot;);
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h5
+                    class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    Central Park Padel
+                  </h5>
+                  <p class="text-[10px] text-text-secondary">2 notifications</p>
+                </div>
+              </a>
+              <a class="flex items-center gap-3 group" href="#">
+                <div
+                  class="size-10 rounded-xl bg-gray-100 bg-cover bg-center border border-gray-200"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB02uu6bjF4Crl0nWYavoPCgoJQEs9fJWy-lqo5rg6BK4BqaEcHNnjSTemMHKdB78XexBunKkDkD5XGsS5E24qFWnphECoz9V2eiC10F2vZAms6K9jI7IWzpqkVyEagFiRPr8Sw2Vlv36SRS4mm8KY7fXTqZ_tkVDuG_aznnQ0j2ilNIpF4MuXDe-_SnFjpgzLVXQP-Q_yXmfCA65-RbUHtB-hoDKgvECZBsD5lEz6aBwqbRKWkWVfL3CNfOetFEcrTp0JtovcF4nz9&quot;);
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h5
+                    class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    Smash Padel Club
+                  </h5>
+                  <p class="text-[10px] text-text-secondary">
+                    Member since 2023
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </aside>
+        <section class="col-span-1 lg:col-span-6 flex flex-col gap-6">
+          <div
+            class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-gray-100 dark:border-gray-800"
+          >
+            <div class="flex gap-4 mb-4">
+              <div
+                class="size-11 rounded-full bg-gray-200 shrink-0 bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCdVRFMis05cp7LlOVhYkMMtEBJQ-QPospUwZIw7S8u-Rih5qzICV9kW1eui2RJYmtFVbgcMBQ4wX4ercT27IsF3WhzpJ2oDgFY98ft4q9wz8jb6a4ciddCTOBTUNPAhTCVB_iLPJH9Aoo400MZyKyG9TGiDFeiA09Jy1xLfn_d-GSVgM26tyzkypzYOkwfCax4taf9iy5FB1ybp-hna3lpJsIPHl84UMIxhGJyCOrQIQbGo-Kn7szbEVGw34U_W7JZYeVy1FI22Gm0&quot;);
+                "
+              ></div>
+              <div class="flex-1">
+                <textarea
+                  class="w-full bg-gray-50 dark:bg-gray-900/50 rounded-xl border-none p-3 text-text-main dark:text-white placeholder:text-text-secondary focus:ring-2 focus:ring-primary/20 focus:bg-white dark:focus:bg-gray-900 transition-all resize-none h-24 text-sm"
+                  placeholder="Looking for a game? Share with the community..."
+                ></textarea>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pl-14">
+              <div class="flex gap-2">
+                <button
+                  class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary transition-colors group"
+                >
+                  <span
+                    class="material-symbols-outlined text-lg text-primary group-hover:scale-110 transition-transform"
+                    >image</span
+                  >
+                  <span class="text-xs font-bold">Photo</span>
+                </button>
+                <button
+                  class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-text-secondary transition-colors group"
+                >
+                  <span
+                    class="material-symbols-outlined text-lg text-primary group-hover:scale-110 transition-transform"
+                    >videocam</span
+                  >
+                  <span class="text-xs font-bold">Video</span>
+                </button>
+              </div>
+              <button
+                class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-full text-sm transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5"
+              >
+                Post Update
+              </button>
+            </div>
+          </div>
+          <div
+            class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide"
+          >
+            <button
+              class="px-5 py-2 rounded-full bg-text-main text-white text-xs font-bold whitespace-nowrap shadow-md hover:bg-black transition-colors"
+            >
+              All Posts
+            </button>
+            <button
+              class="px-5 py-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary hover:text-primary hover:border-primary transition-colors text-xs font-bold whitespace-nowrap"
+            >
+              Looking for Game
+            </button>
+            <button
+              class="px-5 py-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary hover:text-primary hover:border-primary transition-colors text-xs font-bold whitespace-nowrap"
+            >
+              Highlights
+            </button>
+            <button
+              class="px-5 py-2 rounded-full bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-secondary hover:text-primary hover:border-primary transition-colors text-xs font-bold whitespace-nowrap"
+            >
+              Tournaments
+            </button>
+          </div>
+          <article
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-card border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-card-hover transition-shadow"
+          >
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="size-11 rounded-full bg-gray-200 bg-cover bg-center ring-2 ring-white dark:ring-gray-800"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBPX1h0wHpQwMvfuMPlPqp99kiiiAWXKzipqIXSvRY64TH5EUwhPEP2pibzexP8ygLNoRUIhVh5zV1XxktzGLh8VlA-q3Cy2nKcaQbAXbe02CSKcrpb10pbhE3xJDXKwf6M1qLCtDXszgLDA1vBsnB4lom50enBN-aMBmU_HxCAYuzYDaXmHzaQzXUPi4deV_fcNTYeeXJ58oiBalMHaIH0N4j3MYxTG6Y5ZqRGEF7LhBRB_dnMEODrP5saQOsCiCqn-k-UY1n8tQ4g&quot;);
+                    "
+                  ></div>
+                  <div>
+                    <h4
+                      class="font-bold text-text-main dark:text-white text-sm"
+                    >
+                      Sarah Mitchell
+                    </h4>
+                    <div
+                      class="flex items-center gap-2 text-xs text-text-secondary"
+                    >
+                      <span>2 hours ago</span>
+                      <span class="size-1 rounded-full bg-gray-300"></span>
+                      <span
+                        class="text-primary font-bold flex items-center gap-1"
+                        ><span class="material-symbols-outlined text-sm"
+                          >sports_tennis</span
+                        >
+                        Looking for Game</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="text-text-secondary hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full transition-colors"
+                >
+                  <span class="material-symbols-outlined">more_horiz</span>
+                </button>
+              </div>
+              <div class="flex flex-col md:flex-row gap-6 mb-4">
+                <div class="flex-1">
+                  <h3
+                    class="font-bold text-lg mb-2 text-text-main dark:text-white"
+                  >
+                    Doubles Match - Intermediate Level
+                  </h3>
+                  <p class="text-text-secondary text-sm mb-4 leading-relaxed">
+                    My partner and I are looking for two more players for a
+                    friendly but competitive match this evening. We are around
+                    level 3.5-4.0.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="inline-flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg text-xs font-bold text-text-main dark:text-gray-300"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm text-primary"
+                        >calendar_today</span
+                      >
+                      Today, 18:00
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg text-xs font-bold text-text-main dark:text-gray-300"
+                    >
+                      <span
+                        class="material-symbols-outlined text-sm text-primary"
+                        >location_on</span
+                      >
+                      Central Park Padel
+                    </span>
+                    <span
+                      class="inline-flex items-center gap-1.5 bg-primary/10 px-3 py-1.5 rounded-lg text-xs font-bold text-primary"
+                    >
+                      <span class="material-symbols-outlined text-sm"
+                        >group</span
+                      >
+                      2 Spots Open
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="w-full md:w-32 h-32 rounded-xl bg-gray-100 bg-cover bg-center shrink-0"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAsynBzRcIoHbfbtc7YY3vlGG6yWB9tmprCC9Fzk066r0rzweVn-68dXkRKGYVmgBDOeOxDb_fJipXJzrfeoAHIEXRWmQjyJkjIkPA5kKoU9cg7cWZNlpHW37PdYmbrp9VoXdYCfAAYQOwt42i-kdVGRMqUMPHRhcV5TR5U8jFWXZCx3Kla44e-NSjE5B3OXLtTSbVKKg6yqbsnaVtM5yq8Fv-QyX9Y5z7s0rJJ1u9eUiZY0bNEPrUG7ELKa4OI8wm3r7MXOihpJQKI&quot;);
+                  "
+                ></div>
+              </div>
+              <div
+                class="pt-4 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="flex -space-x-3">
+                    <div
+                      class="size-8 rounded-full border-2 border-white dark:border-surface-dark bg-cover bg-center"
+                      style="
+                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBgmZzoYCBQCMgI3VcfuR2qkdKdD2yL8rzaE3_rXD25POX6nPvHSuPj7JsVzmYrREC9ScPTUo6zBQtNcC-aLGevb2q8xgZA4hDpXdTUOQBUIN7By8NrizAllYgB_bbfmQ7gauQEbnU7tMKaGPWvHbaYcEuBeLnaVwMXtdBHR3UVDEeaiAP8SmCT_MU6vbIMbDvufn3mq-aowSbthhLmC9v_dX1xl3h7ebWmN1ZNgzHpEQ_gsELOzyQPZIBdCoccHSRlbvKm1FfBO1vX&quot;);
+                      "
+                    ></div>
+                    <div
+                      class="size-8 rounded-full border-2 border-white dark:border-surface-dark bg-gray-100 flex items-center justify-center text-[10px] font-bold text-text-secondary"
+                    >
+                      +3
+                    </div>
+                  </div>
+                  <span class="text-xs font-medium text-text-secondary"
+                    >Interested</span
+                  >
+                </div>
+                <button
+                  class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-5 rounded-full text-sm transition-all shadow-md shadow-primary/20 flex items-center gap-2 hover:-translate-y-0.5"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >add_circle</span
+                  >
+                  Join Match
+                </button>
+              </div>
+            </div>
+          </article>
+          <article
+            class="bg-surface-light dark:bg-surface-dark rounded-2xl shadow-card border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-card-hover transition-shadow"
+          >
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div
+                    class="size-11 rounded-full bg-gray-200 bg-cover bg-center"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAwecazKECBydVhLPkAn-VgiBVYUeXzP7e9kEwOyEo1JUeJJ9buBwNPB5OJm-mS-koEekIrV-Fd9EmdaiYCRFTUwQGxkeVNl19TkVO3yYsuLj29lTq1_WCAgdrBr0jeLaIkw8Gunvgx_NPxLB3Eh8HeS1JtAWNtTtlorLMSnS188bpywJX4D-xYb7-ftCLOPvnqVR0zNnbrTW9qMYiZzVrL-5SBBfAJ4n2z-pq7fUj0pxI-KtHplyQEPjdMP9uUNE8Hquq8U1yDg_Qi&quot;);
+                    "
+                  ></div>
+                  <div>
+                    <h4
+                      class="font-bold text-text-main dark:text-white text-sm"
+                    >
+                      David Kowalski
+                    </h4>
+                    <p class="text-xs text-text-secondary">4 hours ago</p>
+                  </div>
+                </div>
+                <button
+                  class="text-text-secondary hover:bg-gray-100 dark:hover:bg-gray-800 p-1 rounded-full transition-colors"
+                >
+                  <span class="material-symbols-outlined">more_horiz</span>
+                </button>
+              </div>
+              <p class="text-text-main dark:text-gray-200 text-sm mb-4">
+                What a rally from last night's game! Still can't believe we
+                saved that point. 🎾🔥
+              </p>
+            </div>
+            <div class="relative group cursor-pointer">
+              <div
+                class="w-full aspect-video bg-black bg-cover bg-center"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCzYUvHMn5y9sOcTdMX2F_dgBGI7wTkEyL1GFxxfMF27Ygq8kGuEw4IZD50XYp3ebXgzsDPx0we0HToNb4SvgsA6z5_ou74TYsv3fNaklXo11Kx5nXHIE5cdLM_shyH69ehJIfjaTUW-5gn19DMMDYaIjoTtgW7jkDLzpLoa7kOg8MYAF887r3a3I6s1J2KGDg8YonVc-IY8Akmlc1CNRJq1sLLfeP1Tohi1cUXpcczlf0K-s3v3608Y1MP8wwRZiOW_IU3_uV7Qnf-&quot;);
+                "
+              ></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors"
+              >
+                <div
+                  class="size-16 rounded-full bg-white/90 flex items-center justify-center pl-1 shadow-xl transform group-hover:scale-110 transition-transform duration-300"
+                >
+                  <span class="material-symbols-outlined text-4xl text-primary"
+                    >play_arrow</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="p-4 flex items-center justify-between">
+              <div class="flex gap-4">
+                <button
+                  class="flex items-center gap-1.5 text-text-secondary hover:text-red-500 transition-colors group"
+                >
+                  <span
+                    class="material-symbols-outlined text-xl group-hover:fill-current"
+                    >favorite</span
+                  >
+                  <span class="text-xs font-bold">24</span>
+                </button>
+                <button
+                  class="flex items-center gap-1.5 text-text-secondary hover:text-primary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-xl"
+                    >chat_bubble</span
+                  >
+                  <span class="text-xs font-bold">8</span>
+                </button>
+              </div>
+              <button
+                class="text-text-secondary hover:text-primary transition-colors"
+              >
+                <span class="material-symbols-outlined text-xl">share</span>
+              </button>
+            </div>
+          </article>
+        </section>
+        <aside
+          class="hidden lg:flex flex-col gap-6 lg:col-span-3 sticky top-28"
+        >
+          <div
+            class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-gray-100 dark:border-gray-800"
+          >
+            <div class="flex items-center justify-between mb-6">
+              <h4 class="text-sm font-bold text-text-main dark:text-white">
+                Upcoming Games
+              </h4>
+              <a class="text-primary text-xs font-bold hover:underline" href="#"
+                >View Calendar</a
+              >
+            </div>
+            <div
+              class="relative pl-4 border-l-2 border-gray-100 dark:border-gray-800 space-y-8"
+            >
+              <div class="relative group">
+                <div
+                  class="absolute -left-[21px] top-1.5 size-3 rounded-full bg-primary ring-4 ring-white dark:ring-surface-dark shadow-sm"
+                ></div>
+                <p
+                  class="text-[10px] font-bold text-primary mb-1 uppercase tracking-wide"
+                >
+                  Tomorrow, 19:30
+                </p>
+                <h5
+                  class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors cursor-pointer"
+                >
+                  vs. Tom &amp; Jerry
+                </h5>
+                <p
+                  class="text-xs text-text-secondary mt-0.5 flex items-center gap-1"
+                >
+                  <span class="material-symbols-outlined text-[10px]"
+                    >location_on</span
+                  >
+                  Central Park Padel • C2
+                </p>
+              </div>
+              <div class="relative group">
+                <div
+                  class="absolute -left-[21px] top-1.5 size-3 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-surface-dark"
+                ></div>
+                <p
+                  class="text-[10px] font-bold text-text-secondary mb-1 uppercase tracking-wide"
+                >
+                  Sat, 10:00
+                </p>
+                <h5
+                  class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors cursor-pointer"
+                >
+                  Club Tournament
+                </h5>
+                <p
+                  class="text-xs text-text-secondary mt-0.5 flex items-center gap-1"
+                >
+                  <span class="material-symbols-outlined text-[10px]"
+                    >location_on</span
+                  >
+                  Smash Club • Main
+                </p>
+              </div>
+            </div>
+            <button
+              class="w-full mt-8 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-text-main dark:text-white font-bold text-xs transition-colors border border-transparent hover:border-gray-200"
+            >
+              Book a Court
+            </button>
+          </div>
+          <div
+            class="bg-surface-light dark:bg-surface-dark p-5 rounded-2xl shadow-card border border-gray-100 dark:border-gray-800"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <h4 class="text-sm font-bold text-text-main dark:text-white">
+                Online Friends
+                <span class="text-text-secondary font-normal">(4)</span>
+              </h4>
+            </div>
+            <div class="flex flex-col gap-4">
+              <div
+                class="flex items-center justify-between group cursor-pointer"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <div
+                      class="size-10 rounded-full bg-cover bg-center"
+                      style="
+                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCxZtesqOMY9moLka5ROX3y2CfbYAu39_4-J1hwOGMPQVJ3j0z7yXIKJefggmWjxpw_pOrWhYAHJbM1CN6P-qqRNho5vz600jWJ8mh8J0-GGjGxj-v0gYjh1DiAxVkBetJ4inO4jmjGt54pB1K28SXKhRN56yiD1KUeR8EIKiFj7Opj5_dBBGzchT1cFF96K-sZ69s3UxNitsclsAA1OYcBCLgggLSY8EZQSwqxyN-O9CqJMVo84R8nklYiIQQaKAg7mivyDv_FDEXL&quot;);
+                      "
+                    ></div>
+                    <div
+                      class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-white dark:border-surface-dark"
+                    ></div>
+                  </div>
+                  <div>
+                    <h5
+                      class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors"
+                    >
+                      Maria Garcia
+                    </h5>
+                    <p class="text-[10px] text-primary font-medium">
+                      Playing now
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="size-8 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-primary hover:text-white text-text-secondary flex items-center justify-center transition-all"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >chat_bubble</span
+                  >
+                </button>
+              </div>
+              <div
+                class="flex items-center justify-between group cursor-pointer"
+              >
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <div
+                      class="size-10 rounded-full bg-cover bg-center"
+                      style="
+                        background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB4zF__KBYusu_CYrr4wf31CGKEBtf21tfsfXstQ2PwY9knwURsNsFB5K2X3KMbL8InrggYeEt0z3nfdC7NfYBg9gF5qV3OVPXIu9rdfGRAJeBmzil3KcLmeegznIB8WkgDCSgfJS14wW8YaeGkMLKYg0Dt6og1mBpf_P13raGNolnq5nmmAOfmt_cUKNJOme8E-VCrM7AurXzd6GrzZ0IXnPCJSTO2WfvbWOOgfEtB7tZ7bVRp2vrDaAgL8XEpPmPM9yb7hsCH7x4G&quot;);
+                      "
+                    ></div>
+                    <div
+                      class="absolute bottom-0 right-0 size-3 bg-green-500 rounded-full border-2 border-white dark:border-surface-dark"
+                    ></div>
+                  </div>
+                  <div>
+                    <h5
+                      class="text-sm font-bold text-text-main dark:text-white group-hover:text-primary transition-colors"
+                    >
+                      Lucas Silva
+                    </h5>
+                    <p class="text-[10px] text-text-secondary">Online</p>
+                  </div>
+                </div>
+                <button
+                  class="size-8 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-primary hover:text-white text-text-secondary flex items-center justify-center transition-all"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >chat_bubble</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-gradient-to-br from-primary to-teal-600 p-5 rounded-2xl shadow-lg text-white relative overflow-hidden group"
+          >
+            <div class="relative z-10">
+              <h4 class="text-sm font-bold mb-3">Suggested for You</h4>
+              <div
+                class="flex items-center gap-3 mb-4 bg-white/10 p-2 rounded-xl backdrop-blur-sm group-hover:bg-white/20 transition-colors"
+              >
+                <div
+                  class="size-10 rounded-full bg-cover bg-center border border-white/20"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDIY27bw4tL0or3Lfxvyf8ezK4gQJLpq5BqBtV9ZXdbVA5gpg_IsTOQXtDfzJj41m_0inyPPbDrnXA-X_XMcgulOhlLP-Wq53vmCW7yqA3aCsOowe-QfBMOlXPocGoTD2ftx0FVHgSxBxRZJbJ5yldRJN0q24a1QDJ3LNyTQaA2bFon6NPpmOC6XZCIf7UxocM6z6qQXRWuOE4IentB1Vlaf_Pid1QidBFZhFD_GculO_1UoFKDPVfWgv4MpssSc5oFxlwUJobTGkCJ&quot;);
+                  "
+                ></div>
+                <div class="flex-1 min-w-0">
+                  <h5 class="text-sm font-bold truncate">James Wilson</h5>
+                  <p class="text-[10px] text-white/80">Level 4.5 • 2km away</p>
+                </div>
+              </div>
+              <button
+                class="w-full py-2 bg-white text-primary font-bold text-xs rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+              >
+                Connect
+              </button>
+            </div>
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <span class="material-symbols-outlined text-6xl">person_add</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      @keyframes fade-in-up {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.5s ease-out forwards;
+      }
+    </style>
+  </body>
+</html>

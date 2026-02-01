@@ -1,0 +1,840 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PADL Gear Marketplace</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#00C9A7",
+              "primary-dark": "#009e82",
+              "background-light": "#F8FAFC",
+              "background-dark": "#0F172A",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1E293B",
+              accent: "#0D9488",
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              lg: "1.5rem",
+              xl: "2.5rem",
+              "2xl": "2rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .text-gradient {
+        background: linear-gradient(135deg, #00c9a7 0%, #10b981 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .bg-gradient-brand {
+        background: linear-gradient(135deg, #00c9a7 0%, #10b981 100%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white font-display transition-colors duration-200 antialiased selection:bg-primary/20 selection:text-primary-dark"
+  >
+    <header
+      class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 transition-colors duration-200"
+    >
+      <div
+        class="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between gap-6"
+      >
+        <div class="flex items-center gap-10">
+          <a class="flex items-center gap-2 group" href="#">
+            <div
+              class="flex items-center justify-center size-10 bg-slate-900 dark:bg-white rounded-xl text-white dark:text-slate-900 shadow-lg shadow-slate-900/10 transition-transform group-hover:scale-95"
+            >
+              <span class="material-symbols-outlined text-[22px]"
+                >sports_tennis</span
+              >
+            </div>
+            <span
+              class="text-2xl font-black tracking-tighter text-gradient group-hover:opacity-80 transition-opacity"
+              >PADL</span
+            >
+          </a>
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Play</a
+            >
+            <a
+              class="text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Book</a
+            >
+            <a class="text-sm font-bold text-slate-900 dark:text-white" href="#"
+              >Shop</a
+            >
+            <a
+              class="text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Community</a
+            >
+          </nav>
+        </div>
+        <div class="flex flex-1 justify-end items-center gap-4">
+          <div class="hidden lg:flex flex-1 max-w-md relative group">
+            <span
+              class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined text-[20px] group-focus-within:text-primary transition-colors"
+              >search</span
+            >
+            <input
+              class="w-full bg-slate-100 dark:bg-slate-800/50 border-none rounded-full py-3 pl-12 pr-4 text-sm font-medium focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 text-slate-900 dark:text-white transition-all shadow-inner"
+              placeholder="Search rackets, shoes, gear..."
+              type="text"
+            />
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              class="flex items-center justify-center size-10 rounded-full text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors relative"
+            >
+              <span class="material-symbols-outlined">shopping_bag</span>
+              <span
+                class="absolute top-2 right-2 size-2.5 bg-red-500 border-2 border-white dark:border-slate-900 rounded-full"
+              ></span>
+            </button>
+            <button
+              class="flex items-center justify-center size-10 rounded-full text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            >
+              <span class="material-symbols-outlined">account_circle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-full min-h-screen pb-20">
+      <div
+        class="bg-white dark:bg-slate-900 border-b border-slate-200/60 dark:border-slate-800/60 sticky top-20 z-40 backdrop-blur-sm bg-opacity-90"
+      >
+        <div class="max-w-7xl mx-auto px-6 overflow-x-auto hide-scrollbar">
+          <div class="flex items-center gap-8 h-12">
+            <a
+              class="text-sm font-bold text-slate-900 dark:text-white border-b-2 border-slate-900 dark:border-white h-full flex items-center px-1"
+              href="#"
+              >Overview</a
+            >
+            <a
+              class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors h-full flex items-center px-1 whitespace-nowrap"
+              href="#"
+              >Rackets</a
+            >
+            <a
+              class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors h-full flex items-center px-1 whitespace-nowrap"
+              href="#"
+              >Shoes</a
+            >
+            <a
+              class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors h-full flex items-center px-1 whitespace-nowrap"
+              href="#"
+              >Apparel</a
+            >
+            <a
+              class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors h-full flex items-center px-1 whitespace-nowrap"
+              href="#"
+              >Bags</a
+            >
+            <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-2"></div>
+            <a
+              class="text-sm font-bold text-gradient h-full flex items-center px-1 whitespace-nowrap gap-1"
+              href="#"
+            >
+              Sale
+              <span class="material-symbols-outlined text-[16px]"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-16">
+        <section
+          class="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden group shadow-2xl shadow-slate-900/20"
+        >
+          <div class="absolute inset-0 bg-slate-900">
+            <div
+              class="absolute inset-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQsmavz17YsixaDfcmJ7EgO-9HcM7aMGQ-gbfQBAMAq6wdzQ-6DbwkbV9aPUvI7AroIhnr6heUedL7CHTSp6CdyvuuAw9OXQJ7eotkV_9YVddUWb7bC3_eakNmege6dOEwMaNbnd_FfU3AaZ3ToScD40ovhI9J6cXI5E2r4BzZIe2vSvQXlXnaMEjPw-iRHNJ5A851caumTKDBm3TkTVkAI2tAOaB5rksJDblXRfJVwebsm5Q1VVGE0zazBzwsQQa8r2bdafe4UA71')] bg-cover bg-center opacity-70 mix-blend-overlay transition-transform duration-[2s] group-hover:scale-105"
+            ></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent"
+            ></div>
+            <div
+              class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent"
+            ></div>
+          </div>
+          <div
+            class="relative z-10 h-full max-w-7xl mx-auto px-8 md:px-16 flex flex-col justify-center"
+          >
+            <div class="max-w-3xl space-y-8">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 font-bold text-sm tracking-wide shadow-lg"
+              >
+                <span class="material-symbols-outlined text-[18px] filled"
+                  >verified</span
+                >
+                Official Pro Gear 2024
+              </div>
+              <h1
+                class="text-6xl md:text-8xl font-black text-white leading-[0.9] tracking-tighter drop-shadow-2xl"
+              >
+                ELEVATE YOUR <br />
+                <span
+                  class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400"
+                  >GAME</span
+                >
+              </h1>
+              <p
+                class="text-xl md:text-2xl text-slate-200 font-medium max-w-xl leading-relaxed opacity-90"
+              >
+                Experience the new generation of carbon fiber technology.
+                Designed for power, precision, and control.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                <button
+                  class="h-14 px-10 rounded-2xl bg-gradient-brand hover:opacity-90 text-white font-bold text-lg transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/20 flex items-center justify-center gap-2"
+                >
+                  Shop Collection
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <button
+                  class="h-14 px-10 rounded-2xl bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-lg transition-all flex items-center justify-center gap-2"
+                >
+                  Watch Video
+                  <span class="material-symbols-outlined">play_circle</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all group cursor-pointer relative overflow-hidden"
+          >
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-8">
+                <div
+                  class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >sports_tennis</span
+                  >
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-2xl"
+                  >arrow_outward</span
+                >
+              </div>
+              <h3
+                class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight"
+              >
+                Rackets
+              </h3>
+              <p class="text-slate-500 dark:text-slate-400 font-medium">
+                Power, Control &amp; Hybrid series
+              </p>
+            </div>
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+          </div>
+          <div
+            class="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all group cursor-pointer relative overflow-hidden"
+          >
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-8">
+                <div
+                  class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                >
+                  <span class="material-symbols-outlined text-3xl">steps</span>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-2xl"
+                  >arrow_outward</span
+                >
+              </div>
+              <h3
+                class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight"
+              >
+                Footwear
+              </h3>
+              <p class="text-slate-500 dark:text-slate-400 font-medium">
+                Clay &amp; Omni court performance
+              </p>
+            </div>
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+          </div>
+          <div
+            class="p-8 rounded-[2rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all group cursor-pointer relative overflow-hidden"
+          >
+            <div class="relative z-10">
+              <div class="flex items-start justify-between mb-8">
+                <div
+                  class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+                >
+                  <span class="material-symbols-outlined text-3xl"
+                    >checkroom</span
+                  >
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-300 group-hover:text-primary transition-colors text-2xl"
+                  >arrow_outward</span
+                >
+              </div>
+              <h3
+                class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight"
+              >
+                Apparel
+              </h3>
+              <p class="text-slate-500 dark:text-slate-400 font-medium">
+                Technical fabrics &amp; kits
+              </p>
+            </div>
+            <div
+              class="absolute -right-10 -bottom-10 w-40 h-40 bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+          </div>
+        </div>
+        <div class="flex items-end justify-between">
+          <div>
+            <h2
+              class="text-4xl font-black tracking-tighter text-slate-900 dark:text-white"
+            >
+              Featured Drops
+            </h2>
+            <p
+              class="text-slate-500 dark:text-slate-400 mt-2 text-lg font-medium"
+            >
+              Curated selection from premium brands.
+            </p>
+          </div>
+          <a
+            class="group flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white hover:text-primary transition-colors border-b-2 border-transparent hover:border-primary pb-0.5"
+            href="#"
+          >
+            View All
+            <span
+              class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform"
+              >arrow_forward</span
+            >
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="group relative flex flex-col bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] dark:hover:shadow-none hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-5 left-5 z-10">
+              <span
+                class="bg-emerald-500/90 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm tracking-wide uppercase"
+              >
+                New
+              </span>
+            </div>
+            <div class="absolute top-5 right-5 z-10">
+              <button
+                class="size-9 rounded-full bg-white/60 dark:bg-black/40 hover:bg-white dark:hover:bg-slate-800 backdrop-blur flex items-center justify-center transition-all text-slate-900 dark:text-white shadow-sm hover:scale-110"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div
+              class="aspect-[4/5] w-full overflow-hidden bg-slate-50 dark:bg-slate-800 relative p-8 flex items-center justify-center"
+            >
+              <div
+                class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-700 ease-out"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBPBCnfc8nFVca4b8RHCStDYw4EHN4Nyi-WKxRQ6sueP1LRvjHrmQn8KvjIIDcgXPKwDhazt1pkdnr_IrDbaB8xFAqLer2zo6mPEb_Z9TPLxbJJYf_k1wve2j6s4lJUH2qAaxEZ8CmJQqkcZQR5_JKPAEpK1fEMfnAxGdf4ViiPNOsKrAz6pftqEzXpcfIYZfn8a30wY6o3fD-uPnJXShaSzHxlA1Cj8Mf3mQ4SJNhwwJDmAW7gV-4k38wr9NUFslA2sYJU7YnKr9yj&quot;);
+                "
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 gap-2">
+              <div
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+              >
+                Bullpadel
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
+              >
+                Vertex 03 2024
+              </h3>
+              <div class="flex items-center gap-2 mt-1 mb-4">
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Power</span
+                >
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Diamond</span
+                >
+              </div>
+              <div class="mt-auto flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-2xl font-black text-slate-900 dark:text-white"
+                    >$349</span
+                  >
+                </div>
+                <button
+                  class="size-11 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:bg-gradient-brand hover:text-white dark:hover:text-white transition-all shadow-lg shadow-slate-900/10 hover:shadow-primary/30 group-hover:scale-105"
+                >
+                  <span class="material-symbols-outlined text-[22px]">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] dark:hover:shadow-none hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-5 right-5 z-10">
+              <button
+                class="size-9 rounded-full bg-white/60 dark:bg-black/40 hover:bg-white dark:hover:bg-slate-800 backdrop-blur flex items-center justify-center transition-all text-slate-900 dark:text-white shadow-sm hover:scale-110"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div
+              class="aspect-[4/5] w-full overflow-hidden bg-slate-50 dark:bg-slate-800 relative p-8 flex items-center justify-center"
+            >
+              <div
+                class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-700 ease-out"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB4klrTEOlBWFH2csont5pkCui-eX1TJk8bWAhbFOYQgFPFEElN8NCCXk8YAavEnSr-MEMQNRUzdvajqZe9Z-1MhlBgjHvqs3lncXtCry-q8pWqhKvEO2syADd49EJKpXXcp7y02DNiChdf93UCzRNjhvC0yvunbepHQqTcjQ8zEHYBAGIGBgL7QKh-RFizMGHWzoC40JQvDvhzs3gAVEfrmqOtCIfSNBPJcDi59VSb61uE4N-RZrf0371UqkVticZl-MubfCp94PHU&quot;);
+                "
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 gap-2">
+              <div
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+              >
+                Adidas
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
+              >
+                Metalbone 3.3
+              </h3>
+              <div class="flex items-center gap-2 mt-1 mb-4">
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Attack</span
+                >
+              </div>
+              <div class="mt-auto flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-2xl font-black text-slate-900 dark:text-white"
+                    >$329</span
+                  >
+                </div>
+                <button
+                  class="size-11 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:bg-gradient-brand hover:text-white dark:hover:text-white transition-all shadow-lg shadow-slate-900/10 hover:shadow-primary/30 group-hover:scale-105"
+                >
+                  <span class="material-symbols-outlined text-[22px]">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] dark:hover:shadow-none hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-5 left-5 z-10">
+              <span
+                class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm tracking-wide uppercase"
+              >
+                Best Seller
+              </span>
+            </div>
+            <div class="absolute top-5 right-5 z-10">
+              <button
+                class="size-9 rounded-full bg-white/60 dark:bg-black/40 hover:bg-white dark:hover:bg-slate-800 backdrop-blur flex items-center justify-center transition-all text-slate-900 dark:text-white shadow-sm hover:scale-110"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div
+              class="aspect-[4/5] w-full overflow-hidden bg-slate-50 dark:bg-slate-800 relative p-8 flex items-center justify-center"
+            >
+              <div
+                class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-700 ease-out"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCfeFhY8j3bqV6bHRkGNUOXuFaHkVmUbwH6UuBTAxsoQAKNzz9gUB3v4zwTi7IkzLHndsMIK74UWQG2LGaIooGEG2NdSQM43FEnOkFblzkLEV18lKoyGKRYDyy5WnDu1szQnm7h6Cuj5h2aTULfHDrgLhtmJFcL-stLK4LpgWgdjNFYJ5f5WvHWPyDqydn6JMAirpowZW8KnU8d0qmCzhIAfAjDSG19RQt-KraDKNPPpGHpSh3bC36qPdqH0vJAj1qmDyKSxgKWZ1bF&quot;);
+                "
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 gap-2">
+              <div
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+              >
+                Nox
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
+              >
+                AT10 Genius 18K
+              </h3>
+              <div class="flex items-center gap-2 mt-1 mb-4">
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Control</span
+                >
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Teardrop</span
+                >
+              </div>
+              <div class="mt-auto flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-2xl font-black text-slate-900 dark:text-white"
+                    >$289</span
+                  >
+                </div>
+                <button
+                  class="size-11 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:bg-gradient-brand hover:text-white dark:hover:text-white transition-all shadow-lg shadow-slate-900/10 hover:shadow-primary/30 group-hover:scale-105"
+                >
+                  <span class="material-symbols-outlined text-[22px]">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative flex flex-col bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.08)] dark:hover:shadow-none hover:-translate-y-1 overflow-hidden"
+          >
+            <div class="absolute top-5 right-5 z-10">
+              <button
+                class="size-9 rounded-full bg-white/60 dark:bg-black/40 hover:bg-white dark:hover:bg-slate-800 backdrop-blur flex items-center justify-center transition-all text-slate-900 dark:text-white shadow-sm hover:scale-110"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >favorite</span
+                >
+              </button>
+            </div>
+            <div
+              class="aspect-[4/5] w-full overflow-hidden bg-slate-50 dark:bg-slate-800 relative p-8 flex items-center justify-center"
+            >
+              <div
+                class="w-full h-full bg-contain bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-700 ease-out"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAZ7qZGrfHjBrcDENHK6olGw-YWAVzM1mgjFYx-cDVyjVXgGkZIrR_mzo4q90uvNzVY0darblKjLwRvmRi_m7eMbEALBulH1HRelp-guaTVEvDneH4Kni7Xidn5h8lz-2JU4FNCYatfv9uKxTdfap-b9KJCCXPRCqZrwDUNXk8BEZTxx50uBAMBp5lvmvtYwuoVsggaXL2OWyyrPY79Jaw1temWOogjYkY6P6tQe_C35bbDaSJaEizKcZ3AQ9VI_1XMLZjp1LYl5RaQ&quot;);
+                "
+              ></div>
+            </div>
+            <div class="p-6 flex flex-col flex-1 gap-2">
+              <div
+                class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1"
+              >
+                Babolat
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white leading-tight"
+              >
+                Technical Viper
+              </h3>
+              <div class="flex items-center gap-2 mt-1 mb-4">
+                <span
+                  class="text-[11px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 uppercase tracking-wide"
+                  >Power</span
+                >
+              </div>
+              <div class="mt-auto flex items-center justify-between">
+                <div class="flex flex-col">
+                  <span
+                    class="text-2xl font-black text-slate-900 dark:text-white"
+                    >$309</span
+                  >
+                </div>
+                <button
+                  class="size-11 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center hover:bg-gradient-brand hover:text-white dark:hover:text-white transition-all shadow-lg shadow-slate-900/10 hover:shadow-primary/30 group-hover:scale-105"
+                >
+                  <span class="material-symbols-outlined text-[22px]">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="py-12 border-t border-slate-200 dark:border-slate-800">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2
+                class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+              >
+                Local Court Brands
+              </h2>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                Support verified local manufacturers
+              </p>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="size-10 flex items-center justify-center rounded-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-300 transition-colors"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >chevron_left</span
+                >
+              </button>
+              <button
+                class="size-10 flex items-center justify-center rounded-full bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-300 transition-colors"
+              >
+                <span class="material-symbols-outlined text-[20px]"
+                  >chevron_right</span
+                >
+              </button>
+            </div>
+          </div>
+          <div class="flex gap-8 overflow-x-auto hide-scrollbar pb-4 px-1">
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAKHzIfORLIU3Gy9YmuVjoDrqTwFVpo6jagFESqdBBZwkSIE621TwKuFrPV6gqVS2SaEZtnD0z86Iu8YHeEk51Dzqjl_nc3uwXgAqi9tYCn0ACrPWS2Q1acBQSVlODXyLMsCB18S_cF89HjakV7iWFB7yKe1Fd0S89JyjZcBqpXMgtzewNECC3oayB3Zx9hagN2XdiELv3XWWsU9g-HsK8_GCbsiscyYLfRyfxRL2UFDVgAX4nNZnysMs309BcwilEuhxTlrBROOvYC&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >BCN Padel</span
+              >
+            </a>
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDLrl1a5WKNMyIOccet3S-umYjMkigiVBIvPyL4R1pvur34mFlZQwQIKzARrc1fLmsh2NeWKmAY5Rt-dGF3yc32Aj7KrW0Skcaw1MoRAk3qrmU4sfro1NDJ2jTYbriSHvVVmreciS5q413kbkrpzzXa-hmxn8zy0WdwhyHZVMBtPirDuG3Jhchh-i7gbIM2oy7Cf0c7a_-UDdqMZm2rDt86CO62pNOOB3Ngqc3fQVJtsO8X47jUtR7cNAlpmTlzfrarfuMLCuiYmwv1&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >Valkyria</span
+              >
+            </a>
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD41X5Lmdq_Ds1R6Dw9Q7lYxQy_sGGyIhz7F9X-gTkHvc7Hs25ZOHjc9P4yWCuuEQ1LA9SYMdpBV8gZKIrKtoVxqB4tvviAVnzXoCWiGmBgJkpB2-YyG_Nu-AuJy6eFz1A4lsFssWQ-jr45f0acw_GEIYswzTOgX23ZexOA9tnxUdnQaosCCZ7Ddv3WHXukKYqizL4VBc0Mo9dy8YfF4rfipmmwjZryfAD3t3Va-_iUfLqQTioavfr22RZeEzgD2kc35J7O1-5krCdA&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >STHLM</span
+              >
+            </a>
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBD5ROavVWPdw5hnuzPc0VlbVHiSjKDdGkZcoTtBVUjLIzb2FA9-5_yWTGgVQCD6X6c2DJ1HElpr96U9OHF4grjMlpapb7CHGrWETT2ENj0eofdHKzPDiMNSOLyjbS7b9u8cT1LPapmyGwczV6y5JK7CUXFyjAKekJIXRr8HqaB2Gpg2dcd_BEm-VY4YluiKKXf6P9h9ynLXWjQX0nldut2pzc8pJMPeWVww_KOScEVnZEvUNi0wzgJHIhghFZhOKLdiLJUjTxnQgi7&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >Pura Vida</span
+              >
+            </a>
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDiF4BeqP37C9ZdubTI0G6YdEryRqUzWlnkrCB-a-BYQLAwQpeFFZKmIg4dtDdkPIPPFsRiycMEFYaGWygKXFGYXZgCZJGBRDwVAQLG4wcrRVr8CUPFsya2qvk28us7n5c0ujF7uMrq4hSmdzXXdFM2kbOxCSsTsXEmxn3dkKf4D4k7sbTsMhJm4pO6qxrbAPjNFhOZy4utl7kuZH2dXg7UylpzrsPhxDHRJr9fVPwlB_I4PF2mB6gBwFr5SJLodMAD18c_J3R1_LPZ&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >Ace Pro</span
+              >
+            </a>
+            <a
+              class="flex flex-col items-center gap-3 min-w-[100px] group"
+              href="#"
+            >
+              <div
+                class="size-24 rounded-full bg-white dark:bg-surface-dark p-1 ring-1 ring-slate-200 dark:ring-slate-700 group-hover:ring-primary group-hover:ring-2 transition-all shadow-sm"
+              >
+                <div
+                  class="w-full h-full rounded-full bg-cover bg-center grayscale group-hover:grayscale-0 transition-all"
+                  style="
+                    background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDLJHHbYiKjXSNhZLb37DLQNbjKscPTxuNsV5LGzyEfjhLs4xtOgKIA_6rev3h9tatDk2Zy1OqiA3QfKVxlCWhBqfTM5ZHH7yucdSHnfMQCr3n9v32zFzXXQEFvygXWXGc6E_Ei2remp6Ckq4wGGf7JaqZlHLhAiRwUP8plHSl5zBL-yyABq6frTUhZpk8xFGB5KB6iK4Dn7fcCnvP84LWGmKWbgpbn-vwMjgqfji1X3YNWiIPL8fA6ui4K8Xr38DfJwsJ2W50V5jFj&quot;);
+                  "
+                ></div>
+              </div>
+              <span
+                class="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-primary transition-colors"
+                >Net Masters</span
+              >
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer
+      class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-16"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12"
+      >
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+            <div
+              class="flex items-center justify-center size-8 bg-slate-900 dark:bg-white rounded-lg text-white dark:text-slate-900"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >sports_tennis</span
+              >
+            </div>
+            <span class="text-xl font-black tracking-tighter text-gradient"
+              >PADL</span
+            >
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            The world's premium padel marketplace. Connect, play, and gear up
+            with the best community in the sport.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-6">Shop</h4>
+          <ul
+            class="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium"
+          >
+            <li>
+              <a class="hover:text-primary transition-colors" href="#"
+                >Rackets</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors" href="#">Shoes</a>
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors" href="#"
+                >Apparel</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors" href="#">Sale</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-6">Support</h4>
+          <ul
+            class="space-y-4 text-sm text-slate-500 dark:text-slate-400 font-medium"
+          >
+            <li>
+              <a class="hover:text-primary transition-colors" href="#"
+                >Order Status</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors" href="#"
+                >Returns</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-primary transition-colors" href="#"
+                >Help Center</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-900 dark:text-white mb-6">
+            Community
+          </h4>
+          <div class="flex gap-4">
+            <a
+              class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[20px]">group</span>
+            </a>
+            <a
+              class="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[20px]">forum</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400"
+      >
+        © 2026 PADL Inc. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

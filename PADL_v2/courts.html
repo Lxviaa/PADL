@@ -1,0 +1,1077 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PADL Court Discovery Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13ec6d",
+              "background-light": "#f6f8f7",
+              "background-dark": "#102218",
+              "text-main": "#111814",
+              "text-sub": "#637588",
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "1.5rem",
+              xl: "2rem",
+              "2xl": "2.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .material-symbols-outlined.filled {
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      /* Custom scrollbar for sidebar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e5e7eb;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d1d5db;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-white text-text-main font-display antialiased overflow-hidden h-screen flex flex-col"
+  >
+    <!-- Top Navigation Bar -->
+    <header
+      class="flex-none flex items-center justify-between whitespace-nowrap border-b border-[#f0f4f2] bg-white px-8 py-4 z-20 relative"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="size-8 bg-primary rounded-full flex items-center justify-center text-text-main"
+        >
+          <span class="material-symbols-outlined filled text-xl"
+            >sports_tennis</span
+          >
+        </div>
+        <h2
+          class="text-text-main text-2xl font-extrabold tracking-tighter uppercase"
+        >
+          PADL
+        </h2>
+      </div>
+      <div class="flex flex-1 justify-center px-12">
+        <!-- Central Location & Date Picker Bar -->
+        <div
+          class="hidden md:flex items-center bg-background-light rounded-full p-1.5 shadow-sm border border-gray-100 max-w-2xl w-full"
+        >
+          <div
+            class="flex items-center px-4 py-1.5 border-r border-gray-200 flex-1 cursor-pointer hover:bg-white hover:shadow-sm rounded-full transition-all"
+          >
+            <span class="material-symbols-outlined text-primary mr-3"
+              >location_on</span
+            >
+            <div class="flex flex-col">
+              <span
+                class="text-[11px] font-bold text-text-sub uppercase tracking-wider"
+                >Where</span
+              >
+              <input
+                class="bg-transparent border-none p-0 text-sm font-semibold text-text-main focus:ring-0 placeholder-gray-400 w-full"
+                placeholder="Search destination"
+                type="text"
+                value="Jakarta, Indonesia"
+              />
+            </div>
+          </div>
+          <div
+            class="flex items-center px-4 py-1.5 border-r border-gray-200 flex-1 cursor-pointer hover:bg-white hover:shadow-sm rounded-full transition-all"
+          >
+            <span class="material-symbols-outlined text-primary mr-3"
+              >calendar_today</span
+            >
+            <div class="flex flex-col">
+              <span
+                class="text-[11px] font-bold text-text-sub uppercase tracking-wider"
+                >Date</span
+              >
+              <span class="text-sm font-semibold text-text-main"
+                >Today, 24 Oct</span
+              >
+            </div>
+          </div>
+          <div
+            class="flex items-center px-4 py-1.5 flex-1 cursor-pointer hover:bg-white hover:shadow-sm rounded-full transition-all"
+          >
+            <span class="material-symbols-outlined text-primary mr-3"
+              >schedule</span
+            >
+            <div class="flex flex-col">
+              <span
+                class="text-[11px] font-bold text-text-sub uppercase tracking-wider"
+                >Time</span
+              >
+              <span class="text-sm font-semibold text-text-main"
+                >18:00 - 20:00</span
+              >
+            </div>
+          </div>
+          <button
+            class="size-10 bg-primary rounded-full flex items-center justify-center text-text-main hover:brightness-105 transition-all shadow-md ml-2 shrink-0"
+          >
+            <span class="material-symbols-outlined">search</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="hidden lg:flex items-center gap-6 mr-4">
+          <a
+            class="text-text-main text-sm font-bold border-b-2 border-primary pb-0.5"
+            href="#"
+            >Courts</a
+          >
+          <a
+            class="text-text-sub hover:text-text-main text-sm font-medium transition-colors"
+            href="#"
+            >Community</a
+          >
+          <a
+            class="text-text-sub hover:text-text-main text-sm font-medium transition-colors"
+            href="#"
+            >Shop</a
+          >
+        </div>
+        <div class="flex items-center gap-3">
+          <button
+            class="relative p-2 rounded-full hover:bg-background-light transition-colors text-text-main"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+            <span
+              class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border border-white"
+            ></span>
+          </button>
+          <button
+            class="flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border border-gray-100 hover:shadow-md transition-all bg-white cursor-pointer"
+          >
+            <div
+              class="size-8 rounded-full bg-gray-200 overflow-hidden"
+              data-alt="User profile avatar placeholder showing a smiling person"
+            >
+              <img
+                alt="Profile"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZu6maZNbQBcIOZo_s0V0VIicbsG5z2V8tGLpoLYxl4q1L03R7GAA8R6y7GnTcMWLdDqArJH4Gb-_RWUALqDr_BrC_kEYldgk6YVKTziX-i0LzQPrLlH8D9kc9eI6NGHoTtPb9jnsx98O2DxjjdCO7yJYwrXM2r1rTzcOBCtwhfyZW9z6Is8Zt-WkLHFEwpWZ5YE07iUTT9aAABjpxcwuKB3QvB6a27r3liFsMTh9qgU9fOF22QF8UsSckDF7L-mCTWV2sxehUIk3o"
+              />
+            </div>
+            <span class="text-sm font-bold truncate max-w-[80px]">Sarah</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Left Sidebar (Filters) -->
+      <aside
+        class="w-80 flex-none bg-white border-r border-[#f0f4f2] overflow-y-auto hidden md:flex flex-col p-6 gap-8"
+      >
+        <div class="flex items-center justify-between">
+          <h3
+            class="text-lg font-extrabold uppercase tracking-tight text-text-main"
+          >
+            Filters
+          </h3>
+          <button
+            class="text-xs font-semibold text-text-sub hover:text-primary transition-colors"
+          >
+            Reset All
+          </button>
+        </div>
+        <!-- Price Filter -->
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-text-sub"
+              >payments</span
+            >
+            <h4 class="text-sm font-bold text-text-main">Price Range</h4>
+          </div>
+          <!-- Slider Component -->
+          <div class="flex flex-col gap-4">
+            <div
+              class="flex justify-between items-center text-sm font-medium text-text-main"
+            >
+              <span>100k</span>
+              <span>500k+</span>
+            </div>
+            <div class="relative h-6 w-full flex items-center">
+              <div
+                class="absolute w-full h-1.5 bg-gray-100 rounded-full overflow-hidden"
+              >
+                <div class="h-full bg-primary w-[60%] ml-[20%]"></div>
+              </div>
+              <div
+                class="absolute left-[20%] size-5 bg-white border-2 border-primary rounded-full shadow cursor-grab hover:scale-110 transition-transform"
+              ></div>
+              <div
+                class="absolute left-[80%] size-5 bg-white border-2 border-primary rounded-full shadow cursor-grab hover:scale-110 transition-transform"
+              ></div>
+            </div>
+            <div class="flex justify-between gap-2 mt-1">
+              <div
+                class="bg-background-light px-3 py-1.5 rounded-lg text-xs font-semibold text-text-main border border-transparent focus-within:border-primary flex-1 text-center"
+              >
+                IDR 150k
+              </div>
+              <div class="text-gray-400">-</div>
+              <div
+                class="bg-background-light px-3 py-1.5 rounded-lg text-xs font-semibold text-text-main border border-transparent focus-within:border-primary flex-1 text-center"
+              >
+                IDR 400k
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="border-gray-100" />
+        <!-- Surface Type -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-text-sub">grass</span>
+            <h4 class="text-sm font-bold text-text-main">Surface</h4>
+          </div>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input
+              checked=""
+              class="size-5 rounded-md border-gray-300 text-primary focus:ring-primary/20 transition-all cursor-pointer"
+              type="checkbox"
+            />
+            <span
+              class="text-sm font-medium text-gray-600 group-hover:text-text-main transition-colors"
+              >Artificial Grass</span
+            >
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input
+              class="size-5 rounded-md border-gray-300 text-primary focus:ring-primary/20 transition-all cursor-pointer"
+              type="checkbox"
+            />
+            <span
+              class="text-sm font-medium text-gray-600 group-hover:text-text-main transition-colors"
+              >Acrylic Hard Court</span
+            >
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input
+              class="size-5 rounded-md border-gray-300 text-primary focus:ring-primary/20 transition-all cursor-pointer"
+              type="checkbox"
+            />
+            <span
+              class="text-sm font-medium text-gray-600 group-hover:text-text-main transition-colors"
+              >Carpet</span
+            >
+          </label>
+        </div>
+        <hr class="border-gray-100" />
+        <!-- Facilities -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-text-sub">pool</span>
+            <h4 class="text-sm font-bold text-text-main">Facilities</h4>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Showers
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Parking
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Lockers
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Cafe
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Shop
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input class="peer sr-only" type="checkbox" />
+              <div
+                class="px-3 py-2 rounded-lg bg-background-light border border-transparent peer-checked:bg-primary/10 peer-checked:border-primary peer-checked:text-primary transition-all text-xs font-semibold text-center text-gray-600"
+              >
+                Rentals
+              </div>
+            </label>
+          </div>
+        </div>
+        <div class="mt-auto pt-4">
+          <button
+            class="w-full bg-text-main text-white h-12 rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg flex items-center justify-center gap-2"
+          >
+            Show 24 Courts
+          </button>
+        </div>
+      </aside>
+      <!-- Main Content Area -->
+      <main
+        class="flex-1 overflow-y-auto bg-background-light p-6 lg:p-10 relative"
+      >
+        <!-- Quick Actions / Context -->
+        <div class="flex items-end justify-between mb-8 max-w-7xl mx-auto">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span
+                class="text-xs font-bold text-primary uppercase tracking-wider bg-primary/10 px-2 py-1 rounded-md"
+                >12 Courts Found</span
+              >
+            </div>
+            <h1
+              class="text-3xl font-extrabold text-text-main uppercase tracking-tight"
+            >
+              Nearby Courts
+            </h1>
+            <p class="text-text-sub mt-1">Found spaces in Jakarta for today.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              class="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 text-sm font-bold text-text-main hover:shadow-md transition-all shadow-sm"
+            >
+              <span class="material-symbols-outlined text-lg">map</span>
+              Map View
+            </button>
+            <div
+              class="flex bg-white rounded-full p-1 border border-gray-200 shadow-sm"
+            >
+              <button
+                class="p-2 rounded-full bg-primary text-text-main shadow-sm"
+              >
+                <span class="material-symbols-outlined filled text-lg"
+                  >grid_view</span
+                >
+              </button>
+              <button
+                class="p-2 rounded-full text-text-sub hover:text-text-main transition-colors"
+              >
+                <span class="material-symbols-outlined text-lg">list</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Court Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 max-w-7xl mx-auto pb-20"
+        >
+          <!-- Card 1 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-green-700 flex items-center gap-1 shadow-sm"
+                >
+                  <span
+                    class="size-2 bg-primary rounded-full animate-pulse"
+                  ></span>
+                  Available
+                </span>
+              </div>
+              <div class="absolute top-4 right-4 z-10">
+                <button
+                  class="size-8 bg-white/30 backdrop-blur-md hover:bg-white rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Modern indoor padel court with blue turf and glass walls"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmF7lu0kcR4CSv5UJW2O7K_uhPngieARwaDeIbK0wDprysWHvCeWPgVoI7cBmBM4Mfl4ELntX5WfaB_KBln6UazkWmNHTVMURraBr5sALqVsFDANsVvEA1wq512Y0q24C6p---YjdEpjqbMdHS7N_cPXXNnmwG0rko83vr5Li1y4ReOnnrKUMDPkrGwfFoV8h4KY5JyQoe2ZgMfCtPDe-pnmBhlGukN0KwKC3q9QDgTfNfdv23BKLW8puDVF1yhc6FTVwLJNosIBkP"
+              />
+              <!-- Gradient Overlay at bottom -->
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">4.9</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(128 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    The Padel Club SCBD
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">2.4 km away</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Amenities Tags -->
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Indoor</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Showers</span
+                >
+              </div>
+              <!-- Social Proof -->
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <div class="flex -space-x-2">
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 1"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc1c8d1QCcTpe-w0pDwcFZYVvHGOlyWVdgW2XyoP-7XhcOvxpQVwjAjsXEhn1xcHuh4BeU8kQeJj6YIDOHfiaaPogQoXJBk1uwQGvVrRomAhgZuBAqaxO0c63RqI3y54W-PDPHknOni77NQbGRE77jugYRwZXB4t2yiZoIVn6Ff4Ce_cp4Fqe_XICE46_ui4KkvjdrP_BtsDAaIBHUUPPEp6xMqPz3Scq_hiRDBvyopVSmQ3sw5lwya1BbF671Nrni666WfF1K35c5"
+                  />
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 2"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH3F0GhqmP81K_z0N-k0SGZhuTJqXCU4N-9eHNmWIMshEkQECzXLU7Vb-XNWBxQhSyjxwSM4q4Nw0lO05kIR3zPLYoYdovDdigLZ-QIn51Sknjok5FLnaMmOeJ_hmBbFoBcvibGvJQtULslqF6odvvicU6O4RzxOgOEzUwizdDjzS7P5bk8hu3nzWcjWSwNdMCiUBEDzbJ2mVJLK9j-0tnEMjMi2PeFK4voizgPR7VSrQ7DkQAcijhC06iyNOf4kRmzc-1L5OQ96aB"
+                  />
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 3"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWtHs0Dyyxq2M7L9LszcpFu5KryMhO2iYlo7lx2I8y402QFCECVCW9wu8PqagutQ4o8eDEEu06BokDbN900xp3ZZvIa-J2xGWcJ9i49G05RskE8KzKRHlmZp6_Rl-MkuWXpx_AQk02NEfkQXmslD-iTkUrQbzuiohsgze2AaaGMRzDqnCnTahB-uqsw_nVZpFfteEzMwL1-cTqqzCsEekZylhpX02yC3ihGAK5_Kfqzv-Bu1y93yH_DPeOaajxDGsDeHMV0t_spg19"
+                  />
+                </div>
+                <span class="text-xs text-text-sub font-medium"
+                  ><strong>Mike</strong> &amp; 3 friends played here</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 350k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-primary text-text-main px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-105 transition-all shadow-md active:scale-95"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-yellow-600 flex items-center gap-1 shadow-sm"
+                >
+                  <span class="size-2 bg-yellow-400 rounded-full"></span>
+                  Limited
+                </span>
+              </div>
+              <div class="absolute top-4 right-4 z-10">
+                <button
+                  class="size-8 bg-white/30 backdrop-blur-md hover:bg-white rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Outdoor padel court surrounded by tropical palm trees in Bali"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw_i6wd7cwmHVJRGhQPr5236tvDgbtF3iHCYlLMdY7sjOpTIgp6lcfDKPPZiICvp1GrMj24Qxyi2CTtV-a71SY671MtcSGWWJjVtGDeDPgRc8qT4EPE5aRXZwKRAXAokmVydCHVWyMXXOPpGrvLb3qu4mU6bKSGw33gpedI_hhVfwiUBHv5IYF9GSX4kcASF96uLcxjqrSC2_vrhd2R7IzOAmMKZOhObFk5hHN8_DA_O66bVeXqookFwu2H7FI7hsDvpIdzy01rPKJ"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">4.7</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(84 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    Bali Padel Academy
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">8.1 km away</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Outdoor</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Cafe</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Shop</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <span class="material-symbols-outlined text-primary text-xl"
+                  >trending_up</span
+                >
+                <span class="text-xs text-text-sub font-medium"
+                  >Popular with pro players</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 250k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-primary text-text-main px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-105 transition-all shadow-md active:scale-95"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full opacity-75 hover:opacity-100"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div
+                class="absolute inset-0 bg-black/40 z-[5] flex items-center justify-center"
+              >
+                <span
+                  class="px-4 py-2 bg-black/60 backdrop-blur-md text-white font-bold rounded-full border border-white/20"
+                  >Fully Booked</span
+                >
+              </div>
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-gray-500 flex items-center gap-1 shadow-sm"
+                >
+                  <span class="size-2 bg-red-500 rounded-full"></span>
+                  Full
+                </span>
+              </div>
+              <img
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                data-alt="Abstract view of a padel racket and ball on artificial blue turf"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl4Yiw1XWSjp_7VLHh_wyaHP24q1LBrD5N70d5DSWLihvZHC9PdWY5EEDTZA-Pb2r1ebkxDl80UEhqNwniK_l2NhTo7sgCvIGDc67NLd7uN38R0c0bbjXifWoRGZ1dWnoBk4P8F6xBboh72DCwB78Uovj9eAANT7_IJIGmbRAUrDsRXwXEJiC4HzSzoVf7oxQtS_5gND5xVJ2LzercGxuuRkY0mjc2hj_THVEIzyLjPRvCljnx93BWd_1KY-iC7YsCr6rAX5EmvPLt"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">5.0</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(210 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    Kemang Sports Center
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">5.0 km away</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Gym</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Pool</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <div class="flex -space-x-2">
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 4"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwF00xNDRPAqMU5aSwjIkqNxLioUu6r69h4VzZTBzc0TQn8UP_zT9yJNq6bMiSQAT42kdoM0aFp9LYtUfqcIEeU_oIUxm6OjvdEK3CUfMu2cC7H96Xej5jo1aTwyZNA_sgPPEGN_GjNIbdLbOTygdL_JRnFCVWvpQUM4T5ctWN_dWBtDyKfUfS1tK0KryVhC9CuOCdhqVjMI5s_GIFGmCJWQUJR0tUH_y7Vje_Tm7mF4jJf_fp6ljM8yrNIuWN3Seapn2PNd2Il90h"
+                  />
+                </div>
+                <span class="text-xs text-text-sub font-medium"
+                  ><strong>John</strong> played recently</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 300k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-gray-100 text-gray-400 px-6 py-2.5 rounded-full font-bold text-sm cursor-not-allowed"
+                  disabled=""
+                >
+                  Notify Me
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-green-700 flex items-center gap-1 shadow-sm"
+                >
+                  <span
+                    class="size-2 bg-primary rounded-full animate-pulse"
+                  ></span>
+                  Available
+                </span>
+              </div>
+              <div class="absolute top-4 right-4 z-10">
+                <button
+                  class="size-8 bg-white/30 backdrop-blur-md hover:bg-white rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Night time view of an illuminated padel court"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeYK0Sdhrj2VYseKkUvR0SB8OwGS9jhauHGBcZzLutmR03b4ieFraifVkAL1QMMaGom0fDjVT1MwsZz1Eou-yjqoPAr1UGqsxQ3UYmwSTKCAicmSBvt15K-v4nIT13dV8fmILe95vKRZ4t5lYV6WDlM01H2zBiQsyQLu-hQay3FDq0g6BvP8qthT4WdAGHkhppHk6VOxcL8fcECCrL7LLMSOOHvcKXID0b4qOOZu4Y3fySOaox0iIw52n3iZZJDr5eMDwdlVQK-bWt"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">4.8</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(56 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    Gelora Padel
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">1.2 km away</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Outdoor</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Lights</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <div class="flex -space-x-2">
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 5"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJM8vSwYDtom-wFYo1fZbQjvj8JPceWVcJQzRlQ3p0oqfvgElCPnBdeTQU57BGG0t8APxXFeQJoVWPm5DJMk5fA83I5oTShjoZxX4aHTSonhK1AfvYkUGFBIwU5x7tdaEU8UTIilCvYz47_iOKY7gMoc0Flm_ogVa4Vq4wHmqwLDy5KsbJBK_Z4FvDWDWfZ8WWo_UWTZ5CEE64CiGB3YL_JTpi9SQzlz7MCLftE-HX63Frn3ZI_lb-qn5flxBnQs_077n4x6R1_ovO"
+                  />
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 6"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB85fPS57I3f19XY925jiDJ1TSVidOyOP2bwVbVJokrnxnOaV6OjgUenOAJE1jCglYRkeQ6Kiz1IxBs5qP2cGtsiVnhE5OTtuSh5FDOxGqmpKbpS-VKpLo6Nr_-dNVo6w03cKByblu5ZF3PzIIpCTe36PwI5eO3rSyxkxWBIca5X5MXCCU5szcNDeLDEGsyykjDtwWTflAVSnlZUUVuEzok4BMH839R1EtmLCKrA5TrUnjER1CzX67xnaZLmRMgjKxWLJCcdbcEYAEc"
+                  />
+                </div>
+                <span class="text-xs text-text-sub font-medium"
+                  ><strong>Alex</strong> &amp; 1 other played here</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 200k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-primary text-text-main px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-105 transition-all shadow-md active:scale-95"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-yellow-600 flex items-center gap-1 shadow-sm"
+                >
+                  <span class="size-2 bg-yellow-400 rounded-full"></span>
+                  Limited
+                </span>
+              </div>
+              <div class="absolute top-4 right-4 z-10">
+                <button
+                  class="size-8 bg-white/30 backdrop-blur-md hover:bg-white rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Bright modern sports facility interior with large windows"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5IAa8vdfffFpNSdwr6LS_xD00Yo6XG1aZZgJWhkutEWOvMEYHLSufl_vdjW9p0RtJlQt_oDgSBCbxFGe8EIXj1sAaEqH73jsn4FJrVOzOBz2fKbWdeu0ceeO3EjPfKRpvi5agcUNzKMn7J3xMtKXHEHAmknk1TBUx5yRooKeN83xeSXKCML-KAcp4N-Ocqnax6gAfI0XfX1nCKE4col6sxwNyVTAsAFViMfJmEN2FrBCIT7eO3aUWMIes82OGc6f9nDN7Li9xpix-"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">4.6</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(32 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    Padel Center Pluit
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">12.5 km away</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Indoor</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >AC</span
+                >
+              </div>
+              <!-- Empty Social Proof State -->
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <div class="bg-gray-100 rounded-full px-2 py-1">
+                  <span class="text-[10px] text-gray-500 font-bold uppercase"
+                    >New Court</span
+                  >
+                </div>
+                <span class="text-xs text-text-sub font-medium"
+                  >Be the first to play!</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 275k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-primary text-text-main px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-105 transition-all shadow-md active:scale-95"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div
+            class="group bg-white rounded-xl overflow-hidden border border-transparent hover:border-primary/30 shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 flex flex-col h-full"
+          >
+            <div class="relative h-56 w-full overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 flex gap-2">
+                <span
+                  class="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold text-green-700 flex items-center gap-1 shadow-sm"
+                >
+                  <span
+                    class="size-2 bg-primary rounded-full animate-pulse"
+                  ></span>
+                  Available
+                </span>
+              </div>
+              <div class="absolute top-4 right-4 z-10">
+                <button
+                  class="size-8 bg-white/30 backdrop-blur-md hover:bg-white rounded-full flex items-center justify-center text-white hover:text-red-500 transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                data-alt="Close up of padel balls in a basket on the court"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCztsWCFNpQfYJmjkrOCv68OpqdE68YHJhy6DPbFYMosDjrJiQD4mRI75Gq2FDjAd6mPAeVpzIXGdweaWd_8qbigUBBkR5lD8_Xpjfz_EQ48EvaVKnYKpGuuyy613el3yhes4wBQnlTNq9ju9Fbkgolto0b68Eog_R5GZGbYSV1hNWm-SZJE6sghyvoP4yP70JCT9xSZy0zS0RIvrV8rTIw8tyY0wrjzM34-aRjO4NKssiFH73mm35OZZPqE3i4r8V4N_SMprIZzN04"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent"
+              ></div>
+              <div
+                class="absolute bottom-4 left-4 text-white flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined filled text-yellow-400 text-lg"
+                  >star</span
+                >
+                <span class="font-bold">4.9</span>
+                <span class="text-xs text-white/80 font-medium"
+                  >(15 reviews)</span
+                >
+              </div>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3
+                    class="text-xl font-bold text-text-main leading-tight group-hover:text-primary transition-colors"
+                  >
+                    Senayan Park Court
+                  </h3>
+                  <div class="flex items-center gap-1 text-text-sub mt-1">
+                    <span class="material-symbols-outlined text-sm"
+                      >near_me</span
+                    >
+                    <span class="text-sm font-medium">3.0 km away</span>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-2 my-3 flex-wrap">
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Outdoor</span
+                >
+                <span
+                  class="px-2 py-1 bg-gray-50 rounded-md text-[10px] font-bold text-gray-500 uppercase tracking-wide"
+                  >Pro</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-3 my-2 py-2 border-t border-b border-gray-50"
+              >
+                <div class="flex -space-x-2">
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 7"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3zF-Tr6RA1Xf5iJwVKp1WFIi4n9PKgBSLNSUmUUi2sxG6X0EFRqWazQfxafdShyO7CHMtHQjGJVe9MgKG0sU4VmIpFIHVO5Xp_7aQReTTW7kM67aKKtKGJCGaq-MiP8BQPQOUwdY3BEtCwmlM-i9qBxNhbyNVWQ6_-4WawyrZCNiHZ3RZmXbBjsnCpuSQXdLFCTXOErFJgXjRSQUUJpd-mRP3ChULobw8lqX4sTDRztfcH5zFC03ruTv-5iw2y6aLTY2e8F3uorlU"
+                  />
+                  <img
+                    class="size-6 rounded-full ring-2 ring-white object-cover"
+                    data-alt="User avatar 8"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmhByxMaCEJLHeObijHRfYN_ZF9DS-UI1Pu5vDjBF9G76PiE_JYrl7XbQCO3TQIsJVtiOiF1jmMJqM-eN7KGS4s72AFFCjFLElIdSIPRZkkrD2-j0_btLIAmRy1WuPpNK8VhCjPD2iZ0T_q-wBF5qsGI637in5Qq6OXq0Jh1JCfDFYOVFmDTEkqwoIdz2KtpDGyNdLjt0B0nhySWbvDW3ApJf2I2_RWQn9tcKC6bGPY-c0n32zBKSoAYpFbwtcUP9PFQ_9B4hcIKDC"
+                  />
+                </div>
+                <span class="text-xs text-text-sub font-medium"
+                  ><strong>David</strong> &amp; 1 other played here</span
+                >
+              </div>
+              <div class="mt-auto pt-3 flex items-center justify-between gap-4">
+                <div class="flex flex-col">
+                  <span class="text-xs text-text-sub font-bold uppercase"
+                    >Price</span
+                  >
+                  <div class="flex items-baseline gap-1">
+                    <span class="text-lg font-extrabold text-text-main"
+                      >IDR 325k</span
+                    >
+                    <span class="text-xs text-text-sub font-medium">/hr</span>
+                  </div>
+                </div>
+                <button
+                  class="bg-primary text-text-main px-6 py-2.5 rounded-full font-bold text-sm hover:brightness-105 transition-all shadow-md active:scale-95"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

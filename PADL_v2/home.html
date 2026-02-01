@@ -1,0 +1,697 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PADL - The Ultimate Padel Experience</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13ec6d",
+              "background-light": "#f6f8f7",
+              "background-dark": "#102218",
+            },
+            fontFamily: {
+              display: ["Lexend", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-[#111814] dark:text-white overflow-x-hidden"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col group/design-root"
+    >
+      <!-- Navigation -->
+      <div class="layout-container flex w-full flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f2] dark:border-b-[#2a4034] px-10 py-4 bg-white dark:bg-background-dark z-50"
+        >
+          <div class="flex items-center gap-4 text-[#111814] dark:text-white">
+            <div class="size-8 text-primary">
+              <svg
+                class="w-full h-full"
+                fill="none"
+                viewbox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-black leading-tight tracking-[-0.015em]">
+              PADL
+            </h2>
+          </div>
+          <div class="hidden lg:flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a
+                class="text-[#111814] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="courts.html"
+                >Courts</a
+              >
+              <a
+                class="text-[#111814] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="#"
+                >Matches</a
+              >
+              <a
+                class="text-[#111814] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="shop.html"
+                >Shop</a
+              >
+              <a
+                class="text-[#111814] dark:text-gray-200 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                href="community.html"
+                >Community</a
+              >
+            </div>
+            <div class="flex gap-3">
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-[#f0f4f2] dark:bg-white/10 text-[#111814] dark:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+              >
+                <span class="truncate">Login</span>
+              </button>
+              <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary text-[#111814] text-sm font-bold leading-normal tracking-[0.015em] hover:brightness-110 transition-all shadow-[0_0_15px_rgba(19,236,109,0.4)]"
+              >
+                <span class="truncate">Sign Up</span>
+              </button>
+            </div>
+          </div>
+          <!-- Mobile Menu Icon (Placeholder) -->
+          <div class="lg:hidden text-[#111814] dark:text-white">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </div>
+        </header>
+      </div>
+      <main class="flex-1">
+        <!-- Hero Section -->
+        <section
+          class="flex flex-col items-center justify-center px-4 md:px-10 lg:px-40 py-5"
+        >
+          <div class="flex flex-col w-full max-w-[1200px] flex-1">
+            <div
+              class="rounded-xl overflow-hidden relative min-h-[560px] flex flex-col items-center justify-center text-center p-8 bg-cover bg-center"
+              data-alt="High energy padel match in a modern glass court with players jumping"
+              style="
+                background-image:
+                  linear-gradient(
+                    rgba(0, 0, 0, 0.2) 0%,
+                    rgba(0, 0, 0, 0.5) 100%
+                  ),
+                  url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDIReDwouQD7uqo1z34ueXef2dv3BW_JMNzGsHYxiuVWUb2jETS5XEWwxKHkBuMNjmalb8CNCOwYiwLwiPsNgp5btVjARfT-oE0GiQ_ZZO9oeYE2JZhfbDrizhY0IOX13RuM8-b4J0ce1boeOBBUHWFhyqnbBRk5c9gKagUSkswAlgEbFn0Ex7XarQuWiP-cYfPrJC569cWqv-nZdqRtTm5jfRpEDgFbUih-Vsm-TNfeIn0BLRpEa5AmQw45qkTkxku3OJPw49CuUmf&quot;);
+              "
+            >
+              <div
+                class="relative z-10 flex flex-col gap-6 max-w-3xl items-center"
+              >
+                <div
+                  class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 mb-2"
+                >
+                  <span
+                    class="size-2 rounded-full bg-primary animate-pulse"
+                  ></span>
+                  <span
+                    class="text-white text-xs font-bold uppercase tracking-wider"
+                    >Live · The #1 Padel Platform</span
+                  >
+                </div>
+                <h1
+                  class="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-[-0.033em]"
+                >
+                  Elevate Your Game.<br />The Ultimate Padel Experience.
+                </h1>
+                <p
+                  class="text-gray-100 text-lg md:text-xl font-normal leading-relaxed max-w-xl"
+                >
+                  Join the fastest-growing community. Book courts, find
+                  opponents, and gear up in seconds.
+                </p>
+                <div class="flex flex-wrap gap-4 mt-4 justify-center">
+                  <button
+                    class="flex h-12 md:h-14 min-w-[160px] items-center justify-center rounded-full bg-primary px-8 text-[#111814] text-base font-bold leading-normal tracking-[0.015em] hover:scale-105 transition-transform"
+                  >
+                    Book a Court
+                  </button>
+                  <button
+                    class="flex h-12 md:h-14 min-w-[160px] items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/30 px-8 text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-white/20 transition-colors"
+                  >
+                    Download App
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Stats Section -->
+        <section
+          class="flex flex-col items-center justify-center px-4 md:px-10 lg:px-40 py-5"
+        >
+          <div class="w-full max-w-[1200px]">
+            <div class="flex flex-wrap gap-4 md:gap-6">
+              <div
+                class="flex min-w-[200px] flex-1 flex-col gap-2 rounded-xl p-8 border border-[#dbe6e0] dark:border-[#2a4034] bg-white dark:bg-[#1a241e] shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="material-symbols-outlined text-primary text-2xl"
+                    >groups</span
+                  >
+                  <p
+                    class="text-[#618972] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider"
+                  >
+                    Active Players
+                  </p>
+                </div>
+                <p
+                  class="text-[#111814] dark:text-white tracking-tighter text-4xl font-black"
+                >
+                  10k+
+                </p>
+                <div
+                  class="inline-flex items-center gap-1 text-[#078829] dark:text-primary text-sm font-medium bg-green-50 dark:bg-primary/10 px-2 py-1 rounded w-fit"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >trending_up</span
+                  >
+                  +15% this month
+                </div>
+              </div>
+              <div
+                class="flex min-w-[200px] flex-1 flex-col gap-2 rounded-xl p-8 border border-[#dbe6e0] dark:border-[#2a4034] bg-white dark:bg-[#1a241e] shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="material-symbols-outlined text-primary text-2xl"
+                    >stadium</span
+                  >
+                  <p
+                    class="text-[#618972] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider"
+                  >
+                    Partner Courts
+                  </p>
+                </div>
+                <p
+                  class="text-[#111814] dark:text-white tracking-tighter text-4xl font-black"
+                >
+                  500+
+                </p>
+                <div
+                  class="inline-flex items-center gap-1 text-[#078829] dark:text-primary text-sm font-medium bg-green-50 dark:bg-primary/10 px-2 py-1 rounded w-fit"
+                >
+                  <span class="material-symbols-outlined text-base"
+                    >add_location</span
+                  >
+                  +5% this month
+                </div>
+              </div>
+              <div
+                class="flex min-w-[200px] flex-1 flex-col gap-2 rounded-xl p-8 border border-[#dbe6e0] dark:border-[#2a4034] bg-white dark:bg-[#1a241e] shadow-sm"
+              >
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="material-symbols-outlined text-primary text-2xl"
+                    >sports_tennis</span
+                  >
+                  <p
+                    class="text-[#618972] dark:text-gray-400 text-sm font-semibold uppercase tracking-wider"
+                  >
+                    Daily Matches
+                  </p>
+                </div>
+                <p
+                  class="text-[#111814] dark:text-white tracking-tighter text-4xl font-black"
+                >
+                  1,200
+                </p>
+                <div
+                  class="inline-flex items-center gap-1 text-[#078829] dark:text-primary text-sm font-medium bg-green-50 dark:bg-primary/10 px-2 py-1 rounded w-fit"
+                >
+                  <span class="material-symbols-outlined text-base">bolt</span>
+                  +20% this week
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Features Grid -->
+        <section
+          class="flex flex-col items-center justify-center px-4 md:px-10 lg:px-40 py-16 bg-white dark:bg-transparent"
+        >
+          <div class="w-full max-w-[1200px]">
+            <div class="flex flex-col gap-12">
+              <div class="flex flex-col gap-4 max-w-[720px]">
+                <h2
+                  class="text-[#111814] dark:text-white tracking-tight text-4xl md:text-5xl font-black leading-tight"
+                >
+                  Everything you need to play
+                </h2>
+                <p
+                  class="text-[#618972] dark:text-gray-400 text-lg md:text-xl font-normal leading-relaxed"
+                >
+                  Whether you are a beginner or a pro, PADL connects you to the
+                  game seamlessly.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Feature 1 -->
+                <div
+                  class="group flex flex-col gap-6 rounded-2xl border border-[#dbe6e0] dark:border-[#2a4034] bg-background-light dark:bg-[#1a241e] p-8 hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  <div
+                    class="size-14 rounded-full bg-white dark:bg-white/5 flex items-center justify-center text-[#111814] dark:text-primary shadow-sm group-hover:bg-primary group-hover:text-[#111814] transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >calendar_month</span
+                    >
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3
+                      class="text-[#111814] dark:text-white text-xl font-bold leading-tight"
+                    >
+                      Instant Court Reservations
+                    </h3>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-base font-normal leading-normal"
+                    >
+                      Book courts at top-rated clubs instantly with real-time
+                      availability checking.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-auto pt-4 flex items-center text-sm font-bold text-[#111814] dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    Book Now
+                    <span class="material-symbols-outlined text-lg ml-1"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                  class="group flex flex-col gap-6 rounded-2xl border border-[#dbe6e0] dark:border-[#2a4034] bg-background-light dark:bg-[#1a241e] p-8 hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  <div
+                    class="size-14 rounded-full bg-white dark:bg-white/5 flex items-center justify-center text-[#111814] dark:text-primary shadow-sm group-hover:bg-primary group-hover:text-[#111814] transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >group</span
+                    >
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3
+                      class="text-[#111814] dark:text-white text-xl font-bold leading-tight"
+                    >
+                      Find Your Perfect Partner
+                    </h3>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-base font-normal leading-normal"
+                    >
+                      Match with players at your skill level nearby using our
+                      advanced ELO rating system.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-auto pt-4 flex items-center text-sm font-bold text-[#111814] dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    Find Match
+                    <span class="material-symbols-outlined text-lg ml-1"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                  class="group flex flex-col gap-6 rounded-2xl border border-[#dbe6e0] dark:border-[#2a4034] bg-background-light dark:bg-[#1a241e] p-8 hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  <div
+                    class="size-14 rounded-full bg-white dark:bg-white/5 flex items-center justify-center text-[#111814] dark:text-primary shadow-sm group-hover:bg-primary group-hover:text-[#111814] transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >shopping_bag</span
+                    >
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3
+                      class="text-[#111814] dark:text-white text-xl font-bold leading-tight"
+                    >
+                      Pro-Level Gear Store
+                    </h3>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-base font-normal leading-normal"
+                    >
+                      Shop the latest racquets, shoes, and apparel from top
+                      padel brands.
+                    </p>
+                  </div>
+                  <div
+                    class="mt-auto pt-4 flex items-center text-sm font-bold text-[#111814] dark:text-white group-hover:text-primary transition-colors"
+                  >
+                    Shop Gear
+                    <span class="material-symbols-outlined text-lg ml-1"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Community Carousel -->
+        <section
+          class="flex flex-col items-center justify-center px-4 md:px-10 lg:px-40 py-16"
+        >
+          <div class="w-full max-w-[1200px] flex flex-col gap-8">
+            <div class="flex justify-between items-end px-4">
+              <div class="flex flex-col gap-2">
+                <h2 class="text-[#111814] dark:text-white text-3xl font-black">
+                  Join the Community
+                </h2>
+                <p class="text-[#618972] dark:text-gray-400">
+                  See what's happening on the courts near you.
+                </p>
+              </div>
+              <div class="hidden md:flex gap-2">
+                <button
+                  class="size-10 rounded-full border border-[#dbe6e0] dark:border-[#2a4034] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-white/5"
+                >
+                  <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button
+                  class="size-10 rounded-full border border-[#dbe6e0] dark:border-[#2a4034] flex items-center justify-center hover:bg-gray-100 dark:hover:bg-white/5"
+                >
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="flex overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0"
+            >
+              <div class="flex gap-6">
+                <!-- Card 1 -->
+                <div
+                  class="flex flex-col gap-4 min-w-[280px] md:min-w-[320px] group cursor-pointer"
+                >
+                  <div
+                    class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden relative"
+                    data-alt="Group of friends high fiving on a padel court"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBdTtoM9eMWo9DAasyjSren24FxhGABolhfnroTJbut2kH5jc3xrC2yUpx4Dnzi8cOMPhmcza3pP8NJcMqTjm13IBL70KVY3yaoW30USARxal8CQ_LVtFF6UFzXeR1eFoWi2aORBhzZWtqrj86-TFG4fhOXg2moV7uH8CXGa_gY51Ftm0TdADFXYdtpFWiKjwERBtwqOMm5WXWDK7z7Wdy1ti0SQwdjxr55SR9uMEnnPkiV78bFprcc_9zF9BCbLVuMdnlw67VC2Gr4&quot;);
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"
+                    ></div>
+                  </div>
+                  <div>
+                    <h4
+                      class="text-[#111814] dark:text-white text-lg font-bold leading-normal group-hover:text-primary transition-colors"
+                    >
+                      Community First
+                    </h4>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Join a welcoming local group
+                    </p>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                  class="flex flex-col gap-4 min-w-[280px] md:min-w-[320px] group cursor-pointer"
+                >
+                  <div
+                    class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden relative"
+                    data-alt="Premium indoor padel court with blue turf"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAcUhWv-d-WtwZG3kW4VMGTzGkav4GzBWrgnpetHWyJWUOZrPjwsYvy6ArENuga6D6ZQn2pZW5bxY89KEaXohrRSDkguZvrGlCss0YSNRf0A8wEvgWWaecOerzXhjNY1LI_rY6OSc_Vvm6zZkcmev4JnTlJ-jrN1bXACaZkv-bDIXkuIF7n6yAWvZwN8pxYNhSb1Szxjb-rcxx3-H7L0TBcxE1B49HFkxc5PW-8WO1bvGYr6zwznc6h8TAc_tuItrvyA8UhrQFzXR_K&quot;);
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"
+                    ></div>
+                  </div>
+                  <div>
+                    <h4
+                      class="text-[#111814] dark:text-white text-lg font-bold leading-normal group-hover:text-primary transition-colors"
+                    >
+                      Premium Facilities
+                    </h4>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Play at the best venues
+                    </p>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div
+                  class="flex flex-col gap-4 min-w-[280px] md:min-w-[320px] group cursor-pointer"
+                >
+                  <div
+                    class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden relative"
+                    data-alt="Two players talking and laughing after a match"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC6av0IGTNDDaxTCjQi6mIE-LfyN2_8WC7gpqh7nFoUlFx4uisZCm8Q-roIZlIDMr7fiMdQswWuLU1Dgy8dcdfxhSZEWzb2nyBNnUTabE4an9U23s_pq7CuIcZb_x-KgcX65gndiLLyxd3ksHBbbpuD3fZsZTNfDqGSnFma4OwixbcWxH1SJG7q8J-CgziL8N7rAMHQFL_52xCmtL42u1__fO7fD6_UWfSyPRRPuMhZ0WDkmtv3tUx8ep6zsEeB0IxUk-LxPEQoq6nq&quot;);
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"
+                    ></div>
+                  </div>
+                  <div>
+                    <h4
+                      class="text-[#111814] dark:text-white text-lg font-bold leading-normal group-hover:text-primary transition-colors"
+                    >
+                      Social Matches
+                    </h4>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Make new friends on court
+                    </p>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                  class="flex flex-col gap-4 min-w-[280px] md:min-w-[320px] group cursor-pointer"
+                >
+                  <div
+                    class="w-full aspect-video bg-cover bg-center rounded-2xl overflow-hidden relative"
+                    data-alt="Competitive match point action shot"
+                    style="
+                      background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDKS-TsDaz8iXUZQ24gl8kXUsS7QuKhN7tsbA_MyLzgPMAJN2F3_qgcg6-rtIxF6kwVKeY0o5W2K7qj_XTmrF5wMtH47HUl5h9Y7N2y6y8sNLTxnyqLNXPsVG5oHW3PehtPRM-CtlZ7sh_1RedVzSz8Ll3JoQwExEyPozqapmIIB37AXc0xzfpA40Bla156NQbr0idD7fg8SqwAnrXVNv-CHfq8Yz_CIvcZuwZhQq1IBOVKUvRDlINBMupbDZB3RvFvrrYk4XG3hNFN&quot;);
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"
+                    ></div>
+                  </div>
+                  <div>
+                    <h4
+                      class="text-[#111814] dark:text-white text-lg font-bold leading-normal group-hover:text-primary transition-colors"
+                    >
+                      Competitive Leagues
+                    </h4>
+                    <p
+                      class="text-[#618972] dark:text-gray-400 text-sm font-normal leading-normal"
+                    >
+                      Test your skills in ranked play
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer
+        class="bg-white dark:bg-background-dark border-t border-[#f0f4f2] dark:border-[#2a4034] pt-16 pb-8"
+      >
+        <div class="layout-container flex flex-col px-4 md:px-10 lg:px-40">
+          <div
+            class="flex flex-col md:flex-row justify-between gap-10 max-w-[1200px] mx-auto w-full mb-12"
+          >
+            <div class="flex flex-col gap-4 max-w-sm">
+              <div
+                class="flex items-center gap-2 text-[#111814] dark:text-white"
+              >
+                <div class="size-6 text-primary">
+                  <svg
+                    class="w-full h-full"
+                    fill="none"
+                    viewbox="0 0 48 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold tracking-tight">PADL</h3>
+              </div>
+              <p class="text-[#618972] dark:text-gray-400 text-sm">
+                The all-in-one ecosystem for Padel players. Book, play, compete,
+                and shop in one place.
+              </p>
+            </div>
+            <div class="flex gap-16 flex-wrap">
+              <div class="flex flex-col gap-4">
+                <h4 class="text-[#111814] dark:text-white font-bold">
+                  Platform
+                </h4>
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Book Courts</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Find Matches</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Leagues</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Shop Gear</a
+                >
+              </div>
+              <div class="flex flex-col gap-4">
+                <h4 class="text-[#111814] dark:text-white font-bold">
+                  Company
+                </h4>
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >About Us</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Careers</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Partners</a
+                >
+                <a
+                  class="text-[#618972] dark:text-gray-400 text-sm hover:text-primary transition-colors"
+                  href="#"
+                  >Contact</a
+                >
+              </div>
+              <div class="flex flex-col gap-4">
+                <h4 class="text-[#111814] dark:text-white font-bold">Social</h4>
+                <div class="flex gap-4">
+                  <a
+                    class="text-[#618972] dark:text-gray-400 hover:text-primary transition-colors"
+                    href="#"
+                  >
+                    <span class="sr-only">Instagram</span>
+                    <svg
+                      class="h-6 w-6"
+                      fill="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    class="text-[#618972] dark:text-gray-400 hover:text-primary transition-colors"
+                    href="#"
+                  >
+                    <span class="sr-only">Twitter</span>
+                    <svg
+                      class="h-6 w-6"
+                      fill="currentColor"
+                      viewbox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t border-[#dbe6e0] dark:border-[#2a4034] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 max-w-[1200px] mx-auto w-full"
+          >
+            <p class="text-[#618972] dark:text-gray-500 text-sm">
+              © 2026 PADL Inc. All rights reserved.
+            </p>
+            <div class="flex gap-6">
+              <a
+                class="text-[#618972] dark:text-gray-500 text-sm hover:text-[#111814] dark:hover:text-white"
+                href="#"
+                >Privacy Policy</a
+              >
+              <a
+                class="text-[#618972] dark:text-gray-500 text-sm hover:text-[#111814] dark:hover:text-white"
+                href="#"
+                >Terms of Service</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
